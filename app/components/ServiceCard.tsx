@@ -3,21 +3,23 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 interface ServiceCardProps {
     title: string;
     description: string;
     icon?: ReactNode;
     delay?: number;
+    href?: string;
 }
 
-export default function ServiceCard({ title, description, icon, delay = 0 }: ServiceCardProps) {
-    return (
+export default function ServiceCard({ title, description, icon, delay = 0, href }: ServiceCardProps) {
+    const CardContent = (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay }}
-            className="glass-panel rounded-3xl p-8 hover:shadow-floating hover:shadow-glow-cyan/20 transition-all duration-500 group cursor-pointer relative overflow-hidden border border-white/60 hover:border-ag-cyan/30 bg-gradient-to-br from-white/80 to-white/40"
+            className={`glass-panel rounded-3xl p-8 hover:shadow-floating hover:shadow-glow-cyan/20 transition-all duration-500 group relative overflow-hidden border border-white/60 hover:border-ag-cyan/30 bg-gradient-to-br from-white/80 to-white/40 h-full ${href ? 'cursor-pointer' : ''}`}
         >
             {/* Subtle colorful blob background on hover */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-ag-cyan/5 rounded-full blur-3xl group-hover:bg-ag-cyan/20 transition-colors duration-500"></div>
@@ -35,9 +37,21 @@ export default function ServiceCard({ title, description, icon, delay = 0 }: Ser
                 {description}
             </p>
 
-            <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0 z-10">
-                <ArrowUpRight className="text-black" />
-            </div>
+            {href && (
+                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0 z-10">
+                    <ArrowUpRight className="text-black" />
+                </div>
+            )}
         </motion.div>
+    );
+
+    return href ? (
+        <Link href={href} className="block h-full">
+            {CardContent}
+        </Link>
+    ) : (
+        <div className="h-full">
+            {CardContent}
+        </div>
     );
 }

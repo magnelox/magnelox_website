@@ -1,33 +1,30 @@
 "use client";
 
 import ServiceCard from "./ServiceCard";
-import { Bot, Code2, ShieldCheck, Cloud } from "lucide-react";
+import { Bot, ShieldCheck, Cloud } from "lucide-react";
 
 export default function ServicesGrid() {
     const services = [
         {
-            title: "AI Automation",
+            title: "AI Services & Automation",
             description: "Automate repetitive tasks, enable 24/7 chatbots, email agents & workflow systems.",
             icon: <Bot size={28} />,
-            delay: 0.1
-        },
-        {
-            title: "Custom Software",
-            description: "Build complete applications, dashboards, ERPs, SaaS tools & enterprise systems.",
-            icon: <Code2 size={28} />,
-            delay: 0.2
+            delay: 0.1,
+            href: "/services/ai"
         },
         {
             title: "Cybersecurity",
             description: "Protect your infrastructure with SIEM, Wazuh, ELK, penetration testing & cloud security.",
             icon: <ShieldCheck size={28} />,
-            delay: 0.3
+            delay: 0.3,
+            href: "/services/cybersecurity"
         },
         {
             title: "Cloud Services",
             description: "Cloud consulting, migration, Kubernetes, DevSecOps & infrastructure audits.",
             icon: <Cloud size={28} />,
-            delay: 0.4
+            delay: 0.4,
+            href: "/services/cloud"
         }
     ];
 
