@@ -23,17 +23,37 @@ export default function Footer() {
                     <p className="text-gray-400 text-lg leading-relaxed max-w-md mb-8">
                         Building intelligent, secure, and automated digital ecosystems for the enterprise of tomorrow.
                     </p>
-                    <div className="flex gap-4">
-                        <Link href="#" className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">
-                            <Linkedin size={20} />
-                        </Link>
-                        <Link href="#" className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">
-                            <Instagram size={20} />
-                        </Link>
-                        <Link href="mailto:support@magnelox.com" className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">
-                            <Mail size={20} />
-                        </Link>
-                    </div>
+                   <div className="flex gap-4">
+
+    {/* LinkedIn */}
+    <Link
+        href="https://www.linkedin.com/company/magnelox/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all"
+    >
+        <Linkedin size={20} />
+    </Link>
+
+    {/* Instagram */}
+    <Link
+        href="https://www.instagram.com/magnelox"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all"
+    >
+        <Instagram size={20} />
+    </Link>
+
+    {/* Email */}
+    <Link
+        href="mailto:support@magnelox.com"
+        className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all"
+    >
+        <Mail size={20} />
+    </Link>
+
+</div>
                 </div>
 
                 <div>
@@ -55,7 +75,7 @@ export default function Footer() {
                         </li>
                         <li className="flex items-start gap-4 group">
                             <MapPin size={20} className="mt-0.5 text-white group-hover:text-ag-yellow transition-colors" />
-                            <span>India / Dubai / Netherlands</span>
+                            <span>India </span>
                         </li>
                     </ul>
                 </div>
