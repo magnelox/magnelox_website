@@ -58,10 +58,10 @@ function ColoredParticles(props: any) {
                 <PointMaterial
                     transparent
                     vertexColors
-                    size={0.015}
+                    size={0.045}
                     sizeAttenuation={true}
                     depthWrite={false}
-                    opacity={0.8}
+                    opacity={1}
                 />
             </Points>
         </group>
