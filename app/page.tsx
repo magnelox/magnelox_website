@@ -1,10 +1,15 @@
 import Hero from "./components/Hero";
 import ServicesGrid from "./components/ServicesGrid";
 import ScrollReveal from "./components/ScrollReveal";
+import HeroScene from "./components/HeroScene";
 
 export default function Home() {
   return (
     <div className="flex flex-col pb-0 bg-white min-h-screen relative overflow-hidden">
+
+       {/* Mount the background particle scene */}
+      <HeroScene />  
+      
       {/* Decorative Background Elements */}
       <div className="absolute top-[100vh] left-0 w-[50vw] h-[50vw] bg-ag-cyan/10 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-70"></div>
       <div className="absolute top-[120vh] right-0 w-[40vw] h-[40vw] bg-ag-magenta/10 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-70"></div>
