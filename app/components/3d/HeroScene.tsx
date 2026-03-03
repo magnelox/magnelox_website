@@ -37,7 +37,7 @@ function generateParticles(count: number) {
 
 function ColoredParticles(props: any) {
     const ref = useRef<any>();
-    const { positions, colors } = useMemo(() => generateParticles(3500), []);
+    const { positions, colors } = useMemo(() => generateParticles(8000), []);
 
     useFrame((state, delta) => {
         if (ref.current) {
@@ -50,7 +50,7 @@ function ColoredParticles(props: any) {
             <PointMaterial
                 transparent
                 vertexColors
-                size={0.12}
+                size={0.20}
                 sizeAttenuation={false}
                 depthWrite={false}
                 opacity={1}
