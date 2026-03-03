@@ -5,7 +5,7 @@ import HeroScene from "./components/HeroScene";
 
 export default function Home() {
   return (
-    <div className="flex flex-col pb-0 bg-white min-h-screen relative overflow-hidden">
+    <div className="flex flex-col pb-0 min-h-screen relative overflow-hidden bg-transparent">
 
        {/* Mount the background particle scene */}
       <HeroScene />  
