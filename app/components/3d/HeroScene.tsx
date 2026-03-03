@@ -10,22 +10,21 @@ function generateParticles(count: number) {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
-    // Antigravity Coors: Cyan, Magenta, Yellow
+    // Gradient palette (blue → purple → pink → orange → yellow)
     const palette = [
-        new THREE.Color("#00FFFF"), // Cyan
-        new THREE.Color("#FF00FF"), // Magenta
-        new THREE.Color("#FFFF00"), // Yellow
-        new THREE.Color("#0099FF"), // Blue
+        new THREE.Color("#2D9CDB"), 
+        new THREE.Color("#9B51E0"), 
+        new THREE.Color("#EB5757"), 
+        new THREE.Color("#F2994A"), 
+        new THREE.Color("#F2C94C"),
     ];
 
     for (let i = 0; i < count; i++) {
-        // Position
-        const r = 4;
-        const theta = 2 * Math.PI * Math.random();
-        const phi = Math.acos(2 * Math.random() - 1);
-        const x = r * Math.sin(phi) * Math.cos(theta);
-        const y = r * Math.sin(phi) * Math.sin(theta);
-        const z = r * Math.cos(phi);
+        // 2D-like distribution with slight depth
+        const x = (Math.random() - 0.5) * 8;
+        const y = (Math.random() - 0.5) * 8;
+        const z = (Math.random() - 0.5) * 0.3;
+
         positions[i * 3] = x;
         positions[i * 3 + 1] = y;
         positions[i * 3 + 2] = z;
@@ -41,24 +40,22 @@ function generateParticles(count: number) {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ColoredParticles(props: any) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ref = useRef<any>();
     const { positions, colors } = useMemo(() => generateParticles(4000), []);
 
     useFrame((state, delta) => {
         if (ref.current) {
-            ref.current.rotation.x -= delta / 25;
-            ref.current.rotation.y -= delta / 30;
+            ref.current.rotation.z += delta * 0.02;
         }
     });
 
     return (
-        <group rotation={[0, 0, Math.PI / 4]}>
+        <group>
             <Points ref={ref} positions={positions} colors={colors} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
                     vertexColors
-                    size={0.045}
+                    size={0.06}
                     sizeAttenuation={false}
                     depthWrite={false}
                     opacity={1}
