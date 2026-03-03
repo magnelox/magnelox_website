@@ -59,7 +59,7 @@ function ColoredParticles(props: any) {
                     transparent
                     vertexColors
                     size={0.045}
-                    sizeAttenuation={true}
+                    sizeAttenuation={false}
                     depthWrite={false}
                     opacity={1}
                 />
