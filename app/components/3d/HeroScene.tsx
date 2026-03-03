@@ -50,7 +50,7 @@ function ColoredParticles(props: any) {
             <PointMaterial
                 transparent
                 vertexColors
-                size={0.06}
+                size={0.12}
                 sizeAttenuation={false}
                 depthWrite={false}
                 opacity={1}
@@ -62,7 +62,7 @@ function ColoredParticles(props: any) {
 export default function HeroScene() {
     return (
        <div className="absolute inset-0 -z-10 pointer-events-none">
-            <Canvas camera={{ position: [0, 0, 3], fov: 75 }}>
+            <Canvas camera={{ position: [0, 0, 2.2], fov: 70 }}>
                 <ColoredParticles />
             </Canvas>
         </div>
